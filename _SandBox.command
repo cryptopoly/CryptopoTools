@@ -1,17 +1,15 @@
-#!/bin/bash
-
-#GetBlockHash
+#!/bin/sh
 
 clear
+cd
+cd asset-mapping/macos-scripts
 
-while true; do
-	echo "Enter Blockheight for Blockhash"
-	read Blockheight
-	if test $Blockheight == "exit"; then break
-else
-	./ocean/src/ocean-cli -datadir=./goldnode_main getblockhash $Blockheight &
-	Blockhash=$(./ocean/src/ocean-cli -datadir=./goldnode_main getblockhash $Blockheight)
-	osascript -e 'display notification "Blockhash: '$Blockhash'" with title "GoldNode"'
-	echo ""
-fi
-done
+ls -lh | grep ".command" | awk '{ print ++lvalue, $9 }'
+
+echo "Enter Menu Number And Press Enter"
+
+read menu
+
+echo "You selected:"
+ls -lh | grep ".command" | awk '{ print ++lvalue, $9 }' | grep "*$menu*"
+
