@@ -4,12 +4,14 @@ clear
 cd
 cd asset-mapping/macos-scripts
 
-ls -lh | grep ".command" | awk '{ print ++lvalue, $9 }'
+menu=$(ls -lh | grep ".command" | awk '{ print ++lvalue, $9 }')
 
+echo "$menu"
 echo "Enter Menu Number And Press Enter"
-
-read menu
-
+read menuid
 echo "You selected:"
-ls -lh | grep ".command" | awk '{ print ++lvalue, $9 }' | grep "*$menu*"
+echo "$menu" | grep -w "$menuid"
 
+command=$(echo "$menu" | grep -w "$menuid" |awk '{ print $2 }')
+
+./"$command"
