@@ -17,7 +17,7 @@ MenuNumber=$(ls -lh | grep ".command" | awk '{ print ++lvalue}')
 
 
 while true; do
-	echo "Welcome to DGLD Launcher"
+	echo "Welcome to D Launcher"
 	echo ""
 	menu=$(ls -lh | grep ".sh" | awk '{ print ++lvalue, $9 }')
 	echo "$menu"
