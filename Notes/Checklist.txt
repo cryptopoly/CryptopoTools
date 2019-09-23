@@ -13,6 +13,7 @@ Scripts
 -All Scripts
 --Check for oceand running first before attempting to run
 -Command into .sh & Merge with Python (dynamic)
+-Update Launchpad to "ls -lh *.command" etc
 
 -Fixes
 --Pressing enter without number
