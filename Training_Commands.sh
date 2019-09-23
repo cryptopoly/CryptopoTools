@@ -1,7 +1,7 @@
 #!/bin/bash 
 
 #Start oceand
-$HOME/ocean/src/oceand -datadir=$HOME/goldnode_main -v 
+$HOME/ocean/src/ocean-cli -datadir=$HOME/goldnode_main -v 
 
 #Check for oceand running process
 pgrep oceand 

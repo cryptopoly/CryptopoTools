@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 #!/bin/bash
 
 clear
@@ -6,7 +5,7 @@ cd
 cd $HOME/CryptopoTools
 
 while true; do
-	echo "Welcome to the Python and Shell and Command Launchpad Suite"
+	echo "Welcome to the Python, Shell and Command Launcher Suite"
 	echo ""
 	menu=$(ls -lh | egrep ".py|.sh|.command" | awk '{ print ++lvalue, $9 }')
 	echo "$menu"
@@ -19,16 +18,13 @@ else
 	exec=$(echo "$menu" | grep -w "$menuid" | awk '{ print $2 }')
 	echo "$exec"
 	echo -e
-	if [ "$exec" == *".sh"* ] || [ "$exec" == *".command"* ]; then
-		./"$exec"
+	if [[ "$exec" == *".sh"* ]]; then ./"$exec"
+	elif [[ "$exec" == *".command"* ]]; then ./"$exec"
 	else
 		python3 "$exec"
-	fi
-	echo ""
-	read -n 1 -s -r -p "Press any key to continue"
-	clear
+fi
+echo ""
+read -n 1 -s -r -p "Press any key to continue"
+clear
 fi
 done
-=======
-#!/bin/bash
->>>>>>> Stashed changes
