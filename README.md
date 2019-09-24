@@ -1,8 +1,11 @@
 # CryptopoTools
 
-Bash Tools
+"I command you to have a bash with the python on your desktop"
+-Satoshi Swagamoto aka CryptoRaptor
 
-I command you to have a bash with the python on your desktop - launchpad edition!
+Summary
+This suppositoriy contains some nifty tools for developing and testing scripts written ".py", ".command", ".sh" and ".desktop". Great for continuous running and re-running of scripts. Saves a bundle of time doing stuff.
+
 
 
 Rules.
