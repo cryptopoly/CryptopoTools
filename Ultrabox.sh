@@ -1,10 +1,25 @@
 #!/bin/bash
 
-echo "Ocean server starting..."
-echo -e
-sleep 2
-echo "BlockCount:"
-echo -e
-BlockCount=$($HOME/ocean/src/ocean-cli -datadir=$HOME/goldnode_main getblockcount)
-echo $BlockCount
-osascript -e 'display notification "GoldNode has started with BlockCount '$BlockCount'" with title "GoldNode"'
+# ls -lh
+
+find $(pwd) *".command" *".sh" *".desktop" *".py" -type f
+
+
+
+
+
+
+find ./ *".command" *".sh" *".desktop" *".py"
+
+find *".command" *".sh" *".desktop" *".py"
+
+
+
+
+
+#all columns
+menu=$(ls -lihR | egrep ".py|.sh|.command|.desktop")
+echo "$menu"
+
+#2 colums added
+menu=$(ls -lhihR | egrep ".py|.sh|.command|.desktop" | awk '{ print ++lvalue, $10 }')
