@@ -16,6 +16,21 @@ Basic Command Launcher for building an executable menu of command files within a
 More advanced Launcher Suite building an executable menu of shell, command, python and desktop files within a specific folder.
 
 
+# SandBox.sh <br />
+SandBox for testing scripts.
+
+
+# UltraBox.sh <br />
+Forked from the classic 80's band Ultravox, UltraBox now acts a sandbox for the SandBox. Oh Vienna!
+
+
+# Training_Commands.sh <br />
+List of requirements to take application to the moon.
+
+
+# MoonList.txt <br />
+List of requirements that will take CryptoTools to the moon.
+
 
 # Rules
 1. You'll probably need to enable/trust the files to execute via double-click - if so go to terminal and run <br />
