@@ -14,6 +14,6 @@ Rules.
 -chmod +x *.sh
 
 2. Open Command_Launcher in text edit and update working directory to that where the .sh files are stored
--e.g. /asset-mapping/macos-scripts
+-e.g. $HOME/CryptopoTools
 
 3. Relax and enjoy your new & improved development and testing experience!
