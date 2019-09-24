@@ -2,13 +2,13 @@
 
 clear
 cd
-cd $HOME/asset-mapping/macos-scripts
+cd $HOME/CryptopoTools
 
-./Ocean_Start_DGLD_Node.c ommand
+./Ocean_Start_DGLD_Node.command
 
 while true; do
 	clear
-	echo "Welcome to the Command Launcher Menu"
+	echo "Welcome to the Command Launcher Suite"
 	echo ""
 
 	# Current date

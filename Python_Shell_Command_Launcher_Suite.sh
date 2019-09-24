@@ -2,7 +2,6 @@
 
 clear
 cd $HOME/CryptopoTools
-# cd $HOME/asset-mapping/macos-scripts
 
 while true; do
 	echo "Welcome to the Python, Shell and Command Launcher Suite"
