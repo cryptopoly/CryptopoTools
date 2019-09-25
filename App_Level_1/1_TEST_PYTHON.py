@@ -1,4 +1,1 @@
-#!/bin/bash
-
-
-print("Level 1 Python OK")
+print ("Level 1 Python OK")

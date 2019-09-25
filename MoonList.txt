@@ -17,7 +17,9 @@ Script Improvements
 -Update Launchpad to "ls -lh *.command" etc
 -Make as much variable/automated as possible
 -Fix up if statements for execution
-
+-Exclude paths
+-Function for changing working directory
+-Function for 
 
 Validation
 -Menu number validation
@@ -54,8 +56,7 @@ Explorer
 -
 
 
-Add to 
-
+--  CB
 	# Ocean Node Status 
 	echo -n "Ocean Node Status: "
 	oceandstatus=$(pgrep oceand | awk '{ print "Online" }' ) 

@@ -1,7 +1,12 @@
 #!/bin/bash
 
 clear
+cd
 cd $HOME/CryptopoTools
+
+echo "Please enter the working directory e.g. $HOME/CryptopoTools"
+read wrkdir
+cd $wrkdir
 
 while true; do
 	echo "Welcome to the Python, Shell and Command Launcher Suite"
