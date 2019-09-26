@@ -19,11 +19,12 @@ Script Improvements
 -Fix up if statements for execution
 -Exclude paths
 -Function for changing working directory
--Function for 
+-Function for nano/vim/emacs etc
+-Every function explained in Training Commands so peeps can learn from the app itself
 
 Validation
 -Menu number validation
--Makeynu null entry validation
+-Menu null entry validation
 
 
 Navigation

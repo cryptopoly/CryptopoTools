@@ -25,19 +25,20 @@ Blockcount=$($HOME/ocean/src/ocean-cli -datadir=$HOME/goldnode_main/ getblockcou
 read poop
 echo $poop
 
+# Fine folders excluding hidden
+find . -type d | grep -v '/\.'
+
+
+
 #Hide output (add to end of command "> /dev/null 2>&1")
 if pgrep -x "$process" | grep -v pgrep > /dev/null 2>&1
 
-#elif operations
-if [ $1 -ge 18 ]
-then
-echo You may go to the party.
-elif [ $2 == 'yes' ]
-then
-echo You may go to the party but be back before midnight.
-else
-echo You may not go to the party.
-fi
+
+#If variable not in range then 
+menuid=x
+menucount=18
+if (($menuid >= 1 && $menuid <= $menucount)); then echo "in " ; else echo "out" ; fi
+
 
 cd CryptopoTools
 find $(pwd) -name "*.sh" 
