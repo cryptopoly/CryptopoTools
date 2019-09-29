@@ -1,8 +1,14 @@
 #!/bin/bash
 
-clear
+# Terminal size/position
+printf '\033[8;65;90t'
+
 cd $HOME/CryptopoTools
-echo "Please enter the working directory e.g. $HOME/CryptopoTools"
+	clear
+	echo "Welcome to the Python, Shell and Command Launcher Suite"
+	echo ""
+	echo ""
+	echo "Please enter the working directory e.g. $HOME/CryptopoTools"
 read wrkdir
 
 #Prevent searching through system folders due to null entry
@@ -36,7 +42,8 @@ read menuid
 
 # Exit clause
 if [[ -z $menuid ]] ; then exec
-elif [[ $menuid == "00" ]] ; then echo "Thanks for flying with CryptopoTools!"; echo ""; exit
+elif [[ $menuid == "00" ]] ; then exit ; echo "Thanks for flying with CryptopoTools!"; echo ""; exit
+elif ! (($menuid >= 1 && $menuid <= $menucount)) ; then exec
 else clear
 # Execute command file
 exec=$(echo "$menu_v2" | grep -w "$menuid" | awk '{ print $2 }')

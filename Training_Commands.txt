@@ -1,40 +1,76 @@
 #!/bin/bash 
 
-#Start oceand
+# Root Directory
+$HOME
+# Example
+$HOME/CryptopoTools = /home/my-pc/CryptopoTools
+
+# Start oceand
 $HOME/ocean/src/ocean-cli -datadir=$HOME/goldnode_main -v 
 
-#Check for oceand running process
+# Check for oceand running process
 pgrep oceand 
 
-#OLD Check for oceand running process - remove the process entry of checking
+# Check for oceand running process - remove the process entry of checking
 ps -ef | grep -w oceand | grep -v grep
 
-#OLD Check for oceand running process - remove the process entry of checking
+# Check for oceand running process - remove the process entry of checking
 ps -ef | grep oceand | grep -v grep | awk '{ print $2 }'
 
-#OLD Kill oceand process (also by removing grep)
+# oceand process (also by removing grep)
 kill $(ps -ef | grep oceand | grep -v grep | awk '{ print $2 }')
 
-#Returns oceand program id only
+# Returns oceand program id only
 pgrep oceand
 
-#Variable
+# Variable
 Blockcount=$($HOME/ocean/src/ocean-cli -datadir=$HOME/goldnode_main/ getblockcount)
 
-#User entry and repeat
+# User entry and repeat
 read poop
 echo $poop
 
 # Fine folders excluding hidden
 find . -type d | grep -v '/\.'
 
+# Prints every command for troubleshooting <I>
+set -x
+# Script
+set -x
+cd $HOME
+sudo apt install git -y
+git clone https://github.com/commerceblock/ocean
+cd $HOME/ocean
+sudo add-apt-repository ppa:bitcoin/bitcoin -y
+# Example
+dgld-v2@dgld-v2:~$ ./o2.sh 
+++ cd /home/dgld-v2
+++ sudo apt install git -y
+[sudo] password for dgld-v2: 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+git is already the newest version (1:2.17.1-1ubuntu0.4).
+0 to upgrade, 0 to newly install, 0 to remove and 0 not to upgrade.
+++ git clone https://github.com/commerceblock/ocean
+fatal: destination path 'ocean' already exists and is not an empty directory.
+++ cd /home/dgld-v2/ocean
+++ sudo add-apt-repository ppa:bitcoin/bitcoin -y
+Hit:1 http://ppa.launchpad.net/bitcoin/bitcoin/ubuntu bionic InRelease
+Hit:2 http://gb.archive.ubuntu.com/ubuntu bionic InRelease                 
+Get:3 http://gb.archive.ubuntu.com/ubuntu bionic-updates InRelease [88.7 kB]   
+Hit:4 http://security.ubuntu.com/ubuntu bionic-security InRelease              
+Hit:5 http://gb.archive.ubuntu.com/ubuntu bionic-backports InRelease           
+Fetched 88.7 kB in 0s (201 kB/s)                   
+Reading package lists... Done
 
 
-#Hide output (add to end of command "> /dev/null 2>&1")
+
+# Hide output (add to end of command "> /dev/null 2>&1")
 if pgrep -x "$process" | grep -v pgrep > /dev/null 2>&1
 
 
-#If variable not in range then 
+# If variable not in range then 
 menuid=x
 menucount=18
 if (($menuid >= 1 && $menuid <= $menucount)); then echo "in " ; else echo "out" ; fi
@@ -125,7 +161,7 @@ find $(pwd) \( -name "*.sh" -o -name "*.command" -o -name "*.desktop" -o -name "
 18 1_TEST_PYTHON.py
 19 1_TEST_SHELL.sh
 
-#Exclude paths
+# Exclude paths
 find $(pwd) -not -path '*/\.*'
 
 
@@ -185,12 +221,39 @@ ls -lihR | egrep ".py|.sh|.command|.desktop"
 33589906 -rwxr-xr-x@ 1 cryptopoly  staff    40B 24 Sep 13:44 3_TEST_PYTHON.py
 33589903 -rwxr-xr-x@ 1 cryptopoly  staff    38B 24 Sep 13:44 3_TEST_SHELL.sh
 
-#Hide command output in bash
+# Hide command output in bash
 {
   /your/first/command
   /your/second/command
 } &> /dev/null
 
+
+
+#Output formats etc
+e.g. SomeCommand &>> SomeFile.txt
+e.g. SomeCommand 2>&1 | tee SomeFile.txt
+
+
+          || visible in terminal ||   visible in file   || existing
+  Syntax  ||  StdOut  |  StdErr  ||  StdOut  |  StdErr  ||   file   
+==========++==========+==========++==========+==========++===========
+    >     ||    no    |   yes    ||   yes    |    no    || overwrite
+    >>    ||    no    |   yes    ||   yes    |    no    ||  append
+          ||          |          ||          |          ||
+   2>     ||   yes    |    no    ||    no    |   yes    || overwrite
+   2>>    ||   yes    |    no    ||    no    |   yes    ||  append
+          ||          |          ||          |          ||
+   &>     ||    no    |    no    ||   yes    |   yes    || overwrite
+   &>>    ||    no    |    no    ||   yes    |   yes    ||  append
+          ||          |          ||          |          ||
+ | tee    ||   yes    |   yes    ||   yes    |    no    || overwrite
+ | tee -a ||   yes    |   yes    ||   yes    |    no    ||  append
+          ||          |          ||          |          ||
+ n.e. (*) ||   yes    |   yes    ||    no    |   yes    || overwrite
+ n.e. (*) ||   yes    |   yes    ||    no    |   yes    ||  append
+          ||          |          ||          |          ||
+|& tee    ||   yes    |   yes    ||   yes    |   yes    || overwrite
+|& tee -a ||   yes    |   yes    ||   yes    |   yes    ||  append
 
 # Check for open process
 clear
@@ -207,13 +270,37 @@ else
   echo -e
 fi
 
+# Ocean client and data directory as variable
+oceancli=$"""ocean-cli -datadir=$HOME/goldnode_main"""
+$oceancli 'getblockchaininfo'
 
 
+# RPCs 
+
+#
+-rpcwait help
+
+
+
+
+# Timestamp in UNIX
+timestamp=$(date -u -r 1568700000)
+echo $timestamp
+
+# Specified UNIX date calc with variable
+dateplusminutessvariable=$(date -u -r 1568700000 -v +"$dateplusminutessvariable"M)
+echo $dateplusminutessvariable
 
 #Input/Entry Variables
 echo "Enter your FirstName LastName.."
 read firstname lastname
 echo "Hello $firstname ! Heard that your last name is $lastname."
+
+# Genesis Block Timestamp Comparison
+echo -n "Genesis Block Timestamp: "; date -u -r 1568700000
+blockheight=$($HOME/ocean/src/ocean-cli -datadir=$HOME/goldnode_main/ getblockcount)
+echo -n "Blockheight: "; echo $blockheight;
+echo -n "Calculated Genesis Block Timestamp: "; date -u -r 1568700000 -v +"$blockheight"M
 
 
 #Infinite Number Loop

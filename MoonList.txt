@@ -3,7 +3,7 @@ MacOS Notifications & Status
 - Notification bar oceand indicator
 -
 
-Aesthetics
+Layout
 -Window size/positioning
 
 
@@ -56,18 +56,3 @@ Explorer
 -
 -
 
-
---  CB
-	# Ocean Node Status 
-	echo -n "Ocean Node Status: "
-	oceandstatus=$(pgrep oceand | awk '{ print "Online" }' ) 
-	if test $oceandstatus > 0 ; 
-	then
-		echo "Node Online"
-		echo ""
-		# Current BlockHeight, 
-		echo -n 'BlockHeight: '
-		$HOME/ocean/src/ocea6n-cli -datadir=$HOME/goldnode_main/ getblockcount
-		echo ""
-	else echo "Node Offline"
-	fi
