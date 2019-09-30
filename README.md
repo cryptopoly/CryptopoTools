@@ -8,8 +8,15 @@ Satoshi Swagamoto aka CryptoRaptor
 This suppository contains some nifty tools for developing and testing scripts written ".py", ".command", ".sh" and ".desktop". Great for continuous running and re-running of scripts. Saves a bundle of time doing stuff.
 
 
-# Command_Launcher.sh <br />
-Basic Command Launcher for building an executable menu of command files within a specific folder.
+# Install Script [Linux] <br /> 
+$ cd $HOME
+$ sudo apt install git
+$ git clone https://github.com/cryptopoly/CryptopoTools
+$ cd CryptopoTools
+$ chmod +x *.sh
+$ gsettings set org.gnome.nautilus.preferences executable-text-activation ask [cannot figure out to default run in terminal]
+$ cd $HOME
+$ ln -s $HOME/CryptopoTools/*.sh /$HOME/Desktop
 
 
 # Python_Shell_Command_Launcher_Suite.sh <br />
@@ -35,7 +42,7 @@ List of requirements that will take CryptoTools to the moon.
 # Rules
 
 1. You'll probably need to enable/trust the files to execute via double-click - if so go to terminal and run <br />
--chmod +x *.sh'
+$ chmod +x *.sh'
 
 2. Open Command_Launcher in text edit and update working directory to that where the .sh files are stored <br />
 -e.g. $HOME/CryptopoTools.
