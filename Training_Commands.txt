@@ -30,7 +30,7 @@ gsettings set org.gnome.nautilus.preferences executable-text-activation launch
 chmod +x *.sh
 
 # Variable
-Blockcount=$($HOME/ocean/src/ocean-cli -datadir=$HOME/goldnode_main/ getblockcount)
+blockcount=$($HOME/ocean/src/ocean-cli -datadir=$HOME/goldnode_main/ getblockcount)
 
 # User entry and repeat
 read poop
@@ -70,6 +70,20 @@ Hit:5 http://gb.archive.ubuntu.com/ubuntu bionic-backports InRelease
 Fetched 88.7 kB in 0s (201 kB/s)                   
 Reading package lists... Done
 
+# Text colour
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+# Black        0;30     Dark Gray     1;30
+# Red          0;31     Light Red     1;31
+# Green        0;32     Light Green   1;32
+# Brown/Orange 0;33     Yellow        1;33
+# Blue         0;34     Light Blue    1;34
+# Purple       0;35     Light Purple  1;35
+# Cyan         0;36     Light Cyan    1;36
+# Light Gray   0;37     White         1;37
+# code example
+printf "${RED} Welcome ${NC} to the DGLD Command Launcher"
+
 
 
 # Hide output (add to end of command "> /dev/null 2>&1")
@@ -81,6 +95,14 @@ menuid=x
 menucount=18
 if (($menuid >= 1 && $menuid <= $menucount)); then echo "in " ; else echo "out" ; fi
 
+# If with another separator for some reason :S
+if [[ $blockheight_node -gt $blockheight_exp ]]; then echo "Blockchain sync'd "; else echo "Blockchain sync'd"; fi
+# -eq # equal
+# -ne # not equal
+# -lt # less than
+# -le # less than or equal
+# -gt # greater than
+# -ge # greater than or equal
 
 cd CryptopoTools
 find $(pwd) -name "*.sh" 
@@ -261,6 +283,7 @@ e.g. SomeCommand 2>&1 | tee SomeFile.txt
 |& tee    ||   yes    |   yes    ||   yes    |   yes    || overwrite
 |& tee -a ||   yes    |   yes    ||   yes    |   yes    ||  append
 
+
 # Check for open process
 clear
 echo "Which process would you like to check?"
@@ -276,6 +299,7 @@ else
   echo -e
 fi
 
+
 # Ocean client and data directory as variable
 oceancli=$"""ocean-cli -datadir=$HOME/goldnode_main"""
 $oceancli 'getblockchaininfo'
@@ -285,7 +309,6 @@ $oceancli 'getblockchaininfo'
 
 #
 -rpcwait help
-
 
 
 
@@ -320,8 +343,8 @@ echo All done
 
 
 # cURL - retrieve information from json api + credentials via -H cookie (with cloudflare cookie - open browser, F12, network tab, open site, log in to site, right click site url, copy curl copy as cURL, retrieve cookie)
-curl -s https://explorer.dgld.ch/api/info  -H 'cookie: __cfduid=de4c33e3c5a0639f0950ff48fd34daeec1566473055; CF_Authorization=eyJhbGciOiJSUzI1NiIsImtpZCI6Ijc3ZTNjZDQyMjRhNTYzNTI0NWE5MTlkNzNlMjgzZGYxNzY2ZDcyMGEzYzEzMjUzMjhkOTAxOGRiOGM5YmVhM2MifQ.eyJhdWQiOlsiNmY3M2MyNmRkMmUzMGVlMDY5NDQwZDhiNmJhMTBjMmY3NTczNzBlNjM3MWNlNzJjNzYxOTE0NjNjNTdkN2U0ZSJdLCJlbWFpbCI6ImRhbi5ldmVAZ3RzYS5pbyIsImV4cCI6MTU2OTkzNTM5NSwiaWF0IjoxNTY5ODQ4OTk1LCJuYmYiOjE1Njk4NDg5OTUsImlzcyI6Imh0dHBzOi8vZGdsZC5jbG91ZGZsYXJlYWNjZXNzLmNvbSIsInR5cGUiOiJhcHAiLCJzdWIiOiIwNzM1RTI2RUIxQkQ4N0ExQjcyRDhBMEY3NTc2QzlBRkRFQkIyMUVCIn0.RKx7-fPdBnEM7wWf_IJ1BrhyyR7X4SXVGrlmuKAOdILj7osjTwGc0PP475qGMNUuYieixZVPH6QpefaBq5BM_yxCTUpthyBF5bld0sv0eFx70hB9Bhqjw4jDZa_aYGd_tt1AGUXG7rR87uCX-u0T4SW4S010pGG2RL14d8BwqKCTMZFR69nxP4Pz1tbh-nz9bbpHn8X_-9N-BjdYQ-w-vxq0VtJhwA9ccMt0Ig5cWdn6eaSwpQ9v2PYyDxgZVWA422RTzz6iggdFpPdOi9wqBeqS6Dp9RC-FUxMP2OECA8rvIr2_dYyw9OT4IAk2Vh9GnhQbIlrGjDjmmdvRZHlHIQ'
-
+curl -s https://explorer.dgld.ch/api/info -H 'cookie: __cfduid=de4c33e3c5a0639f0950ff48fd34daeec1566473055; wooTracker=y3S3DNZ133lc; onfido-js-sdk-woopra=VtFyaEMgZCRC; CF_Authorization=eyJhbGciOiJSUzI1NiIsImtpZCI6Ijc3ZTNjZDQyMjRhNTYzNTI0NWE5MTlkNzNlMjgzZGYxNzY2ZDcyMGEzYzEzMjUzMjhkOTAxOGRiOGM5YmVhM2MifQ.eyJhdWQiOlsiNmY3M2MyNmRkMmUzMGVlMDY5NDQwZDhiNmJhMTBjMmY3NTczNzBlNjM3MWNlNzJjNzYxOTE0NjNjNTdkN2U0ZSJdLCJlbWFpbCI6ImRhbi5ldmVAZ3RzYS5pbyIsImV4cCI6MTU3MDAyOTYxOSwiaWF0IjoxNTY5OTQzMjE5LCJuYmYiOjE1Njk5NDMyMTksImlzcyI6Imh0dHBzOi8vZGdsZC5jbG91ZGZsYXJlYWNjZXNzLmNvbSIsInR5cGUiOiJhcHAiLCJzdWIiOiIwNzM1RTI2RUIxQkQ4N0ExQjcyRDhBMEY3NTc2QzlBRkRFQkIyMUVCIn0.G8cIWqufv-pjAs5YogQReha5UZ9h0PcCaoHR73UQ2ZgixlIueH2IfKLHo8Gjf-QwtRpGupjcr8ABGSKgrCEg28S9BSbiUQ3AWzznU-8RqIWKBQWT0UDKMUkl4aPyLM3lBnt4QmGb8bqNLxP3_kNE-jOwen_89N51fKQ6yfNEtIbLoZtpGBbbZ672UaD1tB6GUk6rdY29M6P36z6Csf9Dqh2-WFsOc73HZ0yz0pJ0knmCBI9z7l_okLMwpFmxm7WKydi0wssqqgPcH4YBHw1ni2wv2AWHupuCRCTvdpk10HvfFOM7jwZ1EpCBwL49B94AeQbdDqyGhzkzI2yzCCcRHg'|\
+  jq '.blockheight'
 
 # Output json from URL Unedited
 curl -s https://s3.eu-west-1.amazonaws.com/gtsa-mapping/map.json

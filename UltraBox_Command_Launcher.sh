@@ -1,4 +1,4 @@
-#!/bin/bash
 
-curl -s https://explorer.dgld.ch/api/info  -H 'cookie: __cfduid=de4c33e3c5a0639f0950ff48fd34daeec1566473055; CF_Authorization=eyJhbGciOiJSUzI1NiIsImtpZCI6Ijc3ZTNjZDQyMjRhNTYzNTI0NWE5MTlkNzNlMjgzZGYxNzY2ZDcyMGEzYzEzMjUzMjhkOTAxOGRiOGM5YmVhM2MifQ.eyJhdWQiOlsiNmY3M2MyNmRkMmUzMGVlMDY5NDQwZDhiNmJhMTBjMmY3NTczNzBlNjM3MWNlNzJjNzYxOTE0NjNjNTdkN2U0ZSJdLCJlbWFpbCI6ImRhbi5ldmVAZ3RzYS5pbyIsImV4cCI6MTU2OTkzNTM5NSwiaWF0IjoxNTY5ODQ4OTk1LCJuYmYiOjE1Njk4NDg5OTUsImlzcyI6Imh0dHBzOi8vZGdsZC5jbG91ZGZsYXJlYWNjZXNzLmNvbSIsInR5cGUiOiJhcHAiLCJzdWIiOiIwNzM1RTI2RUIxQkQ4N0ExQjcyRDhBMEY3NTc2QzlBRkRFQkIyMUVCIn0.RKx7-fPdBnEM7wWf_IJ1BrhyyR7X4SXVGrlmuKAOdILj7osjTwGc0PP475qGMNUuYieixZVPH6QpefaBq5BM_yxCTUpthyBF5bld0sv0eFx70hB9Bhqjw4jDZa_aYGd_tt1AGUXG7rR87uCX-u0T4SW4S010pGG2RL14d8BwqKCTMZFR69nxP4Pz1tbh-nz9bbpHn8X_-9N-BjdYQ-w-vxq0VtJhwA9ccMt0Ig5cWdn6eaSwpQ9v2PYyDxgZVWA422RTzz6iggdFpPdOi9wqBeqS6Dp9RC-FUxMP2OECA8rvIr2_dYyw9OT4IAk2Vh9GnhQbIlrGjDjmmdvRZHlHIQ'| \
-	jq
+# menu_v2 is the full path
+menu_v2=$(find $(pwd) | awk '{ print ++lvalue, $1 }' | grep -v '/\.' ) #grep to remove hidden files from search
+echo $menu_v2

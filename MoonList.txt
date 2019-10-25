@@ -3,6 +3,8 @@ MacOS Notifications & Status
 - Notification bar oceand indicator
 -
 
+-RPC calls
+
 Layout
 -Window size/positioning
 

@@ -30,7 +30,11 @@ echo -n "Working Directory: "; pwd
 
 # Construct and show menu [1] [menu_v1 indexes all executable file names only, menu_v2 indexes all executable files and paths required for execution]
 echo ""
+
+# menu_v1 is the filename only
 menu_v1=$(find $(pwd) \( -name "*.sh" -o -name "*.command" -o -name "*.desktop" -o -name "*.py" \) -exec basename {} \; | awk '{ print ++lvalue, $1 }' | grep -v '/\.' )
+
+# menu_v2 is the full path
 menu_v2=$(find $(pwd) \( -name "*.sh" -o -name "*.command" -o -name "*.desktop" -o -name "*.py" \) | awk '{ print ++lvalue, $1 }' | grep -v '/\.' ) #grep to remove hidden files from search
 menucount=$(echo "$menu_v1"|wc -l)
 echo "$menu_v1"
