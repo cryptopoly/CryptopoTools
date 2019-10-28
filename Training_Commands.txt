@@ -32,6 +32,14 @@ chmod +x *.sh
 # Variable
 blockcount=$($HOME/ocean/src/ocean-cli -datadir=$HOME/goldnode_main/ getblockcount)
 
+# Move cursor around to rewrite numbers'n'stuff
+printf("\033[XA"); // Move up X lines;
+printf("\033[XB"); // Move down X lines;
+printf("\033[XC"); // Move right X column;
+printf("\033[XD"); // Move left X column;
+printf("\033[2J"); // Clear screen
+
+
 # User entry and repeat
 read poop
 echo $poop
