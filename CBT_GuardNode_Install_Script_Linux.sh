@@ -22,6 +22,6 @@ sudo apt autoremove -y
 
 # Run Stuff
 cd dgld/mainnet/docker/guardnode
-sudo docker-compose -p cbt up -d
+sudo docker-compose up -d
 sleep 10
-sudo docker exec cbt_guardnode_1 ocean-cli -rpcport=8332 -rpcuser=ocean -rpcpassword=oceanpass getblockchaininfo
+sudo docker exec guardnode_ocean_1 ocean-cli -rpcport=8332 -rpcuser=ocean -rpcpassword=oceanpass getblockchaininfo
