@@ -20,9 +20,6 @@ sudo apt install docker -y
 sudo apt install docker-compose -y
 sudo apt autoremove -y
 
-# Pause to copy in mainnet file
-sleep 30
-
 # Run Stuff
 cd dgld/mainnet/docker/guardnode
 sudo docker-compose -p cbt up -d
