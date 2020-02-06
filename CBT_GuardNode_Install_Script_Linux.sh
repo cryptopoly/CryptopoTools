@@ -15,7 +15,7 @@
 set -x
 # Install stuff
 sudo apt install git -y
-git clone https://github.com/commerceblock/config ocean
+git clone https://github.com/goldtokensa/config dgld
 sudo apt install docker -y
 sudo apt install docker-compose -y
 sudo apt autoremove -y
@@ -24,7 +24,7 @@ sudo apt autoremove -y
 sleep 30
 
 # Run Stuff
-cd ocean/mainnet/docker/guardnode
+cd dgld/mainnet/docker/guardnode
 sudo docker-compose -p cbt up -d
 sleep 10
 sudo docker exec cbt_guardnode_1 ocean-cli -rpcport=8332 -rpcuser=ocean -rpcpassword=oceanpass getblockchaininfo
