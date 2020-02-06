@@ -1,0 +1,10 @@
+sudo apt install git
+git clone https://github.com/commerceblock/config
+git clone https://github.com/cryptopoly/CryptopoTools
+sudo apt install docker
+sudo apt install docker-compose
+sudo apt autoremove
+mv config ocean
+cd ocean/mainnet/docker
+sudo docker-compose -p cbt up -d
+sudo docker exec cbt_ocean_1 ocean-cli -rpcport=8332 -rpcuser=ocean -rpcpassword=oceanpass getblockchaininfo
