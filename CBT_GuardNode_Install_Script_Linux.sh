@@ -19,9 +19,9 @@ git clone https://github.com/commerceblock/config ocean
 sudo apt install docker -y
 sudo apt install docker-compose -y
 sudo apt autoremove -y
-cd ocean/mainnet/docker/guardnode
+cd ocean/testnet/docker/guardnode
 
 # Run Stuff
 sudo docker-compose -p cbt up -d
 sleep 10
-sudo docker exec guardnode_ocean_1 ocean-cli -rpcport=8332 -rpcuser=ocean -rpcpassword=oceanpass help
+sudo docker exec guardnode_ocean_1 ocean-cli -rpcport=8332 -rpcuser=ocean -rpcpassword=oceanpass getblockchaininfo
