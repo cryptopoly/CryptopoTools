@@ -1,7 +1,7 @@
 sudo -s
 sudo apt install git -y
-git clone https://github.com/commerceblock/config -y
-git clone https://github.com/cryptopoly/CryptopoTools -y
+git clone https://github.com/commerceblock/config
+git clone https://github.com/cryptopoly/CryptopoTools
 sudo apt install docker -y
 sudo apt install docker-compose -y
 sudo apt autoremove -y
