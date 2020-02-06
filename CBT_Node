@@ -1,9 +1,9 @@
-sudo apt install git
-git clone https://github.com/commerceblock/config
-git clone https://github.com/cryptopoly/CryptopoTools
-sudo apt install docker
-sudo apt install docker-compose
-sudo apt autoremove
+sudo apt install git -y
+git clone https://github.com/commerceblock/config -y
+git clone https://github.com/cryptopoly/CryptopoTools -y
+sudo apt install docker -y
+sudo apt install docker-compose -y
+sudo apt autoremove -y
 mv config ocean
 cd ocean/mainnet/docker
 sudo docker-compose -p cbt up -d
