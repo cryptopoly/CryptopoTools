@@ -21,7 +21,6 @@ sudo apt install docker-compose -y
 sudo apt autoremove -y
 
 # Run Stuff
-cd dgld/mainnet/docker/guardnode
-sudo docker-compose up -d
+sudo docker-compose -f dgld/mainnet/docker/guardnode/docker-compose.yml up -d
 sleep 10
 sudo docker exec guardnode_ocean_1 ocean-cli -rpcport=8332 -rpcuser=ocean -rpcpassword=oceanpass getblockchaininfo
