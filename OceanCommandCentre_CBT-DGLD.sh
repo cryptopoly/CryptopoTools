@@ -1,7 +1,14 @@
 clear
 printf '\033[8;50;120t'
 
-./Ocean_AutoStart_DGLD_Node.sh
+if pgrep -x "oceand" | grep -v pgrep >&-
+then
+	echo "DGLD and CBT Nodes are running"
+else
+sudo docker-compose -f $HOME/dgld/mainnet/docker/guardnode/docker-compose.yml up -d &
+sleep 2
+fi
+
 
 RED='\033[0;31m'
 AMBER='\033[0;33m'
@@ -9,7 +16,7 @@ NC='\033[0m' # No Colour
 
 while true; do
 	clear
-	echo "Welcome to the DGLD Command Launcher"
+	echo "Welcome to the DGLD-CBT GuardNode Command Launcher"
 	echo ""
 
 # Current date
@@ -17,8 +24,8 @@ echo -n "Date: "
 date -u 
 echo ""
 
-# Ocean Node Sync Status
-echo -n "Ocean Node Status: "
+# GoldNode Sync Status
+echo -n "GoldNode Status: "
 oceandstatus=$(pgrep oceand | awk '{ print "Online" }' ) 
 if test $oceandstatus > 0 ; 
 then
@@ -56,7 +63,7 @@ echo "$menu"
 echo ""
 
 # Menu ID Entry
-echo "Choose item 1 to"$menucount" and press enter:"
+echo "Choose item 1 to "$menucount" and press enter:"
 read menuid
 echo ""
 

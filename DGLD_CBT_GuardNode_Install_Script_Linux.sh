@@ -41,3 +41,8 @@ sudo docker-compose -f $HOME/dgld/mainnet/docker/guardnode/docker-compose.yml up
 sleep 2
 sudo docker exec guardnode_ocean_1 ocean-cli -rpcport=8443 -rpcuser=ocean -rpcpassword=oceanpass getblockchaininfo
 sudo docker exec guardnode_ocean-cb_1 ocean-cli -rpcport=8332 -rpcuser=ocean -rpcpassword=oceanpass getblockchaininfo
+
+# Bang out the CryptopoTools DGLD Guardian Command Centre
+cd
+cd CryptopoTools
+./OceanCommandCentre_CBT-DGLD.sh
