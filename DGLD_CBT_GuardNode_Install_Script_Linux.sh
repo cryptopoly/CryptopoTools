@@ -9,7 +9,8 @@
 # Step 6 - Press Enter to save
 # Step 7 - Type 'chmod +x cbt.sh' and press Enter
 # Step 8 - Type './cbt.sh' and press Enter
-# Step 9 - Enjoy!
+# Step 9 - Type 'sudo -s', press Enter and type your password
+# Step 10 - Enjoy! 
 
 
 #### COPY BELOW INTO NANO ###
@@ -18,15 +19,25 @@
 set -x
 # Install stuff
 sudo apt install git -y
-git clone https://github.com/goldtokensa/config dgld
+sudo git clone https://github.com/goldtokensa/config dgld
 sudo apt install docker -y
 sudo apt install docker-compose -y
 sudo apt autoremove -y
 
+# Install GuardNodes
+cd $HOME
+git clone https://github.com/commerceblock/guardnode
+cd guardnode
+sudo pip3 install -r requirements.txt
+sudo python3 setup.py build
+sudo python3 setup.py install
+
 # Run Stuff
-cd $HOME/dgld
-git pull && git checkout fix/guardnode-compose
+cd $HOME
 sudo docker-compose -f $HOME/dgld/mainnet/docker/guardnode/docker-compose.yml up -d
-sleep 10
-sudo docker exec guardnode_ocean_1 ocean-cli -rpcport=8332 -rpcuser=ocean -rpcpassword=oceanpass getblockchaininfo
-sudo docker exec guardnode_ocean-cb_1 ocean-cli -rpcport=8443 -rpcuser=ocean -rpcpassword=oceanpass getblockchaininfo
+sleep 2
+sudo docker exec guardnode_ocean_1 ocean-cli -rpcport=8443 -rpcuser=ocean -rpcpassword=oceanpass getblockchaininfo
+sudo docker exec guardnode_ocean-cb_1 ocean-cli -rpcport=8332 -rpcuser=ocean -rpcpassword=oceanpass getblockchaininfo
+
+
+
