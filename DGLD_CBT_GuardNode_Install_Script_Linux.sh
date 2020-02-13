@@ -19,7 +19,7 @@
 set -x
 # Install stuff
 sudo apt install git -y
-sudo git clone https://github.com/goldtokensa/config dgld
+git clone https://github.com/goldtokensa/config dgld
 sudo apt install docker -y
 sudo apt install docker-compose -y
 sudo apt autoremove -y
@@ -33,11 +33,8 @@ sudo python3 setup.py build
 sudo python3 setup.py install
 
 # Run Stuff
-cd $HOME
+cd $HOME/dgld
 sudo docker-compose -f $HOME/dgld/mainnet/docker/guardnode/docker-compose.yml up -d
 sleep 2
 sudo docker exec guardnode_ocean_1 ocean-cli -rpcport=8443 -rpcuser=ocean -rpcpassword=oceanpass getblockchaininfo
 sudo docker exec guardnode_ocean-cb_1 ocean-cli -rpcport=8332 -rpcuser=ocean -rpcpassword=oceanpass getblockchaininfo
-
-
-

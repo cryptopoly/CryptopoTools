@@ -1,8 +1,5 @@
-#!/bin/Bash
-
 clear
 printf '\033[8;50;120t'
-cd $HOME/asset-mapping/macos-scripts
 
 ./Ocean_AutoStart_DGLD_Node.sh
 
