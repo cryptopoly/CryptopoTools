@@ -1,15 +1,8 @@
-clear
+#clear
 printf '\033[8;50;120t'
 
-dgld=$('sudo docker exec guardnode_ocean_1 ocean-cli -rpcport=8443 -rpcuser=ocean -rpcpassword=oceanpass ')
-print $dgld
-print $dgld
-print $dgld
-print $dgld
-print $dgld
-print $dgld
-print $dgld
-
+dgld="sudo docker exec guardnode_ocean_1 ocean-cli -rpcport=8443 -rpcuser=ocean -rpcpassword=oceanpass getblockchaininfo"
+printf $dgld
 
 if pgrep -x "oceand" | grep -v pgrep >&-
 then
@@ -24,7 +17,7 @@ AMBER='\033[0;33m'
 NC='\033[0m' # No Colour
 
 while true; do
-	clear
+	#clear
 	echo "Welcome to the DGLD GuardNode Command Centre"
 	echo ""
 
@@ -90,7 +83,7 @@ echo ""
 # Confirm exit command
 # read -n 1 -s -r -p "Press any key to continue"
 
-clear
+
 fi
 done
 
