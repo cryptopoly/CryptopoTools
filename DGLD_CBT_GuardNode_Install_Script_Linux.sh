@@ -45,4 +45,4 @@ sudo docker exec guardnode_ocean-cb_1 ocean-cli -rpcport=8332 -rpcuser=ocean -rp
 # Bang out the CryptopoTools DGLD Guardian Command Centre
 cd
 cd CryptopoTools
-./OceanCommandCentre_CBT-DGLD.sh
+./DGLDGuardianCommandCentre.sh

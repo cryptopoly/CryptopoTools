@@ -1,6 +1,16 @@
 clear
 printf '\033[8;50;120t'
 
+dgld=$('sudo docker exec guardnode_ocean_1 ocean-cli -rpcport=8443 -rpcuser=ocean -rpcpassword=oceanpass ')
+print $dgld
+print $dgld
+print $dgld
+print $dgld
+print $dgld
+print $dgld
+print $dgld
+
+
 if pgrep -x "oceand" | grep -v pgrep >&-
 then
 	echo "DGLD and CBT Nodes are running"
@@ -9,14 +19,13 @@ sudo docker-compose -f $HOME/dgld/mainnet/docker/guardnode/docker-compose.yml up
 sleep 2
 fi
 
-
 RED='\033[0;31m'
 AMBER='\033[0;33m'
 NC='\033[0m' # No Colour
 
 while true; do
 	clear
-	echo "Welcome to the DGLD-CBT GuardNode Command Launcher"
+	echo "Welcome to the DGLD GuardNode Command Centre"
 	echo ""
 
 # Current date
