@@ -65,13 +65,13 @@ echo "$menu"
 echo ""
 
 # Menu ID Entry
-echo "Choose item 1 to "$menucount" and press enter:"
+echo "Choose an option from 1 to "$menucount" and press enter:"
 read menuid
 echo ""
 
 # Exit clause
 if [[ -z $menuid ]] ; then exec
-elif [[ $menuid == "00" ]] ; then exit ; echo "Exiting DGLD Command Launcher"; echo ""; exit
+elif [[ $menuid == "00" ]] ; then exit ; echo "Exiting DGLD Guardian Command Centre"; echo ""; exit
 elif ! (($menuid >= 1 && $menuid <= $menucount)) ; then exec
 else
 
@@ -80,9 +80,12 @@ exec=$(echo "$menu" | grep -w "$menuid" | awk '{ print $2 }')
 ./"$exec"
 echo ""
 
-# Confirm exit command
-# read -n 1 -s -r -p "Press any key to continue"
 
+# Confirm exit command
+read -n 1 -s -r -p "Press any key to continue"
+echo ""
+echo "==============================================================================================================================================================================================================================================================================================================================================================="
+echo ""
 
 fi
 done
