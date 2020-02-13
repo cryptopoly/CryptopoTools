@@ -13,7 +13,7 @@ else
 	blockcount=$(sudo docker exec guardnode_ocean_1 ocean-cli -rpcport=8443 -rpcuser=ocean -rpcpassword=oceanpass getblockcount)
 	sleep 2
 	echo "Blockcount =" "$blockcount"
-	osascript -e 'display notification "GoldNode has started with Blockcount '$blockcount'" with title "GoldNode"'
+	# osascript -e 'display notification "GoldNode has started with Blockcount '$blockcount'" with title "GoldNode"'
 	exit
 fi
 

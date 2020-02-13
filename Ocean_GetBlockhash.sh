@@ -1,4 +1,3 @@
-#!/bin/bash
 
 while true; do
 	echo "Enter Blockheight for Blockhash ('00' to exit)"
@@ -9,7 +8,7 @@ while true; do
 else
 	sudo docker exec guardnode_ocean_1 ocean-cli -rpcport=8443 -rpcuser=ocean -rpcpassword=oceanpass getblockhash $blockheight &
 	blockhash=$(sudo docker exec guardnode_ocean_1 ocean-cli -rpcport=8443 -rpcuser=ocean -rpcpassword=oceanpass $blockheight)
-	osascript -e 'display notification "Blockhash: '$blockhash'" with title "GoldNode"'
+	# osascript -e 'display notification "Blockhash: '$blockhash'" with title "GoldNode"'
 	echo ""
 fi
 done

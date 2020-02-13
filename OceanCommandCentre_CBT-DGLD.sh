@@ -12,13 +12,6 @@ while true; do
 	echo "Welcome to the DGLD Command Launcher"
 	echo ""
 
-# First Block Timestamp - 20 minutes earlier than first official block
-# echo -n "First Block Timestamp: "; date -u -r 1568701200 #GenesisBlock 
-
-# Current date vs estimated date based on 1stblock/blocktime/blockheight
-# echo -n "Current Timestamp Estimate from Genesis Block Timestamp: "; date -u -r 1568701200 -v +"$blockheight_node"M
-# echo ""
-
 # Current date
 echo -n "Date: "
 date -u 
