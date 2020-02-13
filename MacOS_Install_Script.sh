@@ -18,14 +18,13 @@
 # Log stuff
 set -x
 # Install stuff
-sudo apt install git -y
+# brew install curl
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew install git
 git clone https://github.com/goldtokensa/config dgld
 git clone https://github.com/cryptopoly/CryptopoTools
-sudo apt install docker -y
-sudo apt install docker-compose -y
-sudo apt install jq -y
-sudo apt curl -y
-sudo apt autoremove -y
+brew install docker
+brew install docker-compose
 
 # Install GuardNodes
 cd $HOME

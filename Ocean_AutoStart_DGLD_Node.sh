@@ -1,10 +1,8 @@
-#!/bin/bash
-#this is a comment-the first line sets bash as the shell script
 
 if pgrep -x "oceand" | grep -v pgrep >&-
 then
-	echo ""
+	echo "DGLD and CBT Nodes are running"
 else
-$HOME/ocean/src/oceand -datadir=$HOME/goldnode_main -v &
+sudo docker-compose -f $HOME/dgld/mainnet/docker/guardnode/docker-compose.yml up -d &
 sleep 2
 fi

@@ -2,9 +2,9 @@
 #this is a comment-the first line sets bash as the shell script
 
 echo 'BlockCount:'
-$HOME/ocean/src/ocean-cli -datadir=$HOME/goldnode_main/ getblockcount
+sudo docker exec guardnode_ocean_1 ocean-cli -rpcport=8443 -rpcuser=ocean -rpcpassword=oceanpass getblockcount
 
-BlockCount=$($HOME/ocean/src/ocean-cli -datadir=$HOME/goldnode_main getblockcount)
+BlockCount=$(sudo docker exec guardnode_ocean_1 ocean-cli -rpcport=8443 -rpcuser=ocean -rpcpassword=oceanpass getblockcount)
 osascript -e 'display notification "BlockCount '$BlockCount'" with title "GoldNode"'
 
 # Confirm exit command

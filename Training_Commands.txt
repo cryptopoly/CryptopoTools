@@ -17,6 +17,11 @@ ps -ef | grep -w oceand | grep -v grep
 # Check for oceand running process - remove the process entry of checking
 ps -ef | grep oceand | grep -v grep | awk '{ print $2 }'
 
+
+# Check for ocean and dgld node daemons
+ps -ef | grep -w oceand | grep -v grep | awk '{ print $10 }'
+
+
 # oceand process (also by removing grep)
 kill $(ps -ef | grep oceand | grep -v grep | awk '{ print $2 }')
 

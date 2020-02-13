@@ -2,8 +2,8 @@
 #this is a comment-the first line sets bash as the shell script
 
 echo 'DGLD Balance'
-$HOME/ocean/src/ocean-cli -datadir=$HOME/goldnode_main getbalance
-Balance=$($HOME/ocean/src/ocean-cli -datadir=$HOME/goldnode_main getbalance)
+sudo docker exec guardnode_ocean_1 ocean-cli -rpcport=8443 -rpcuser=ocean -rpcpassword=oceanpass getbalance
+Balance=$(sudo docker exec guardnode_ocean_1 ocean-cli -rpcport=8443 -rpcuser=ocean -rpcpassword=oceanpass getbalance)
 osascript -e 'display notification "Balance Retrieved" with title "GoldNode"'
 echo ""
 

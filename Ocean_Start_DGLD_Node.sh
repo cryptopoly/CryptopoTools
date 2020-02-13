@@ -6,11 +6,11 @@ then
 	echo "Ocean server already online"
 	echo -e
 else
-	$HOME/ocean/src/oceand -datadir=$HOME/goldnode_main -v &
+	sudo docker exec guardnode_ocean_1 ocean-cli -rpcport=8443 -rpcuser=ocean -rpcpassword=oceanpass -v &
 	echo "Ocean server starting..."
 	echo -e
 	sleep 2
-	blockcount=$($HOME/ocean/src/ocean-cli -datadir=$HOME/goldnode_main getblockcount)
+	blockcount=$(sudo docker exec guardnode_ocean_1 ocean-cli -rpcport=8443 -rpcuser=ocean -rpcpassword=oceanpass getblockcount)
 	sleep 2
 	echo "Blockcount =" "$blockcount"
 	osascript -e 'display notification "GoldNode has started with Blockcount '$blockcount'" with title "GoldNode"'
