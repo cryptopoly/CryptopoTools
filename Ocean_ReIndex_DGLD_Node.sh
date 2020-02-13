@@ -1,5 +1,3 @@
-#!/bin/bash
-#this is a comment-the first line sets bash as the shell script
 
 # Stop node
 if pgrep -x "oceand" | grep -v pgrep >&-

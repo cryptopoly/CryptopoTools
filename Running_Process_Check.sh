@@ -1,4 +1,3 @@
-#!/bin/bash
 
 clear
 echo "Which process would you like to check?"
