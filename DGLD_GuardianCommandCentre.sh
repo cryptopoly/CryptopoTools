@@ -1,4 +1,4 @@
-# clear
+clear
 
 # Check for ocean and dgld node daemons
 gold_main_status=$(ps -ef | grep -w chain=gold_main | grep -v grep | awk '{ print "DGLD_Online" }')
@@ -21,7 +21,7 @@ AMBER='\033[0;33m'
 NC='\033[0m' # No Colour
 
 while true; do
-	# clear
+	clear
 	echo "Welcome to the DGLD GuardNode Command Centre"
 	echo ""
 
@@ -35,17 +35,16 @@ echo -n "GoldNode Status: "
 echo $gold_main_status
 if test $gold_main_status > 0 ; 
 then
-	echo "Running"
 	echo ""
 	
-	# DGLD explorer blockheight via API
-	echo -n "DGLD Blockheight: "
+	# DGLD.ch explorer blockheight via API
+	echo -n "DGLD.ch Blockheight: "
 	blockheight_exp=$(curl -s https://explorer.dgld.ch/api/info |\
 	jq '.blockheight')
 	echo -e $blockheight_exp
 	echo ""
 
-# Blockchain sync check from explorer api [+/- block sync tolerance level]
+# Blockchain sync check from explorer api [+/- block sync tolerance level & pause until sync'd]
 if
 	[[ $blockheight_node == '' ]]; then blockheight_node=$"0"; fi
 while blockheight_node=$(sudo docker exec guardnode_ocean_1 ocean-cli -rpcport=8443 -rpcuser=ocean -rpcpassword=oceanpass getblockcount)
@@ -56,7 +55,7 @@ do
 	echo ""
 done
 	printf "\033[1A"
-	echo -ne "Local Node Blockheight: "; echo $blockheight_node;
+	echo -ne "Local GoldNode Blockheight: "; echo $blockheight_node;
 else printf "${RED}Node not running${NC}"; echo ""
 fi
 
