@@ -1,15 +1,19 @@
-#clear
-printf '\033[8;50;120t'
+# clear
 
-dgld="sudo docker exec guardnode_ocean_1 ocean-cli -rpcport=8443 -rpcuser=ocean -rpcpassword=oceanpass getblockchaininfo"
-printf $dgld
+# Check for ocean and dgld node daemons
+gold_main_status=$(ps -ef | grep -w chain=gold_main | grep -v grep | awk '{ print "DGLD_Online" }')
+# echo "$gold_main_status"
+ocean_main_status=$(ps -ef | grep -w chain=ocean_main | grep -v grep | awk '{ print "CBT_Online" }')
+# echo "$ocean_main_status"
 
-if pgrep -x "oceand" | grep -v pgrep >&-
+
+if $gold_main_status = "DGLD_Online" && $ocean_main_status = "CBT_Online";
 then
 	echo "DGLD and CBT Nodes are running"
 else
 sudo docker-compose -f $HOME/dgld/mainnet/docker/guardnode/docker-compose.yml up -d &
 sleep 2
+echo ""
 fi
 
 RED='\033[0;31m'
@@ -17,7 +21,7 @@ AMBER='\033[0;33m'
 NC='\033[0m' # No Colour
 
 while true; do
-	#clear
+	# clear
 	echo "Welcome to the DGLD GuardNode Command Centre"
 	echo ""
 
@@ -28,8 +32,8 @@ echo ""
 
 # GoldNode Sync Status
 echo -n "GoldNode Status: "
-oceandstatus=$(pgrep oceand | awk '{ print "Online" }' ) 
-if test $oceandstatus > 0 ; 
+echo $gold_main_status
+if test $gold_main_status > 0 ; 
 then
 	echo "Running"
 	echo ""
@@ -44,7 +48,7 @@ then
 # Blockchain sync check from explorer api [+/- block sync tolerance level]
 if
 	[[ $blockheight_node == '' ]]; then blockheight_node=$"0"; fi
-while blockheight_node=$($HOME/ocean/src/ocean-cli -datadir=$HOME/goldnode_main/ getblockcount)
+while blockheight_node=$(sudo docker exec guardnode_ocean_1 ocean-cli -rpcport=8443 -rpcuser=ocean -rpcpassword=oceanpass getblockcount)
 (( $blockheight_node < $blockheight_exp ));
 do
 	printf "\033[1A"
@@ -65,7 +69,7 @@ echo "$menu"
 echo ""
 
 # Menu ID Entry
-echo "Choose an option from 1 to "$menucount" and press enter:"
+echo "Choose an option between 1 and "$menucount" and press enter:"
 read menuid
 echo ""
 
@@ -84,7 +88,6 @@ echo ""
 # Confirm exit command
 read -n 1 -s -r -p "Press any key to continue"
 echo ""
-echo "==============================================================================================================================================================================================================================================================================================================================================================="
 echo ""
 
 fi

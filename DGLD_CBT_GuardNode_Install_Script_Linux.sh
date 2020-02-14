@@ -24,7 +24,7 @@ git clone https://github.com/cryptopoly/CryptopoTools
 sudo apt install docker -y
 sudo apt install docker-compose -y
 sudo apt install jq -y
-sudo apt curl -y
+sudo apt install curl -y
 sudo apt autoremove -y
 
 # Install GuardNodes
